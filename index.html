@@ -1,14 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-          <meta charset="UTF-8">
-          <meta http-equiv="X-UA-Compatible" content="IE=edge">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <meta charset="UTF-8" />
+          <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
           <title>GitHub 2.0</title>
-          <link rel="stylesheet" href="style.css">
-          <script defer src="index.js"></script>
+          <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-          
+          <span class="header">
+                    <h1>Profile Finder</h1>
+          </span>
+          <span>
+                    <button>
+                              Light
+                              <!-- dark/light mode icon -->
+                    </button>
+          </span>
+          <div class="searchbar">
+                    <!-- search icon -->
+                    <input type="text" id="text"/>
+                    <button id="search">Search</button>
+          </div>
+          <div class="main">
+                    <img id="image" src="" alt="profile picture" />
+                    <h3 id="name"></h3>
+                    <h5 id="join_date"></h5>
+                    <p id="bio"></p>
+                    <ul id="info">
+                              <li id="repos"></li>
+                              <li id="followers"></li>
+                              <li id="following"></li>
+                    </ul>
+                    <ul id="contact_details">
+                              <li id="location"></li>
+                              <a id="link" href="" target="_blank"></a>
+                              <li id="company"></li>
+                    </ul>
+          </div>
+          <script  src="index.js"></script>
 </body>
+
 </html>
