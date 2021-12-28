@@ -14,8 +14,9 @@ const getUser = async (user) => {
 };
 
 function changeTimeFormat(time) {
-	let [year, month, date] = time.created_at.split('-');
-	date = time.created_at.substring(8, 10);
+	let timeString = String(time.created_at);
+	let [year, month, date] = timeString.split('-');
+	date = timeString.substring(8, 10);
 	const months = [
 		'Jan',
 		'Feb',
@@ -34,6 +35,7 @@ function changeTimeFormat(time) {
 	return [date, month, year];
 }
 const changeCard = (user) => {
+	let time = changeTimeFormat(user).join(' ');
 	const card = `
 	<div class="card">
 		<div>
@@ -41,7 +43,7 @@ const changeCard = (user) => {
 		</div>
 		<div class="main">
 			<h2>${user.name}</h2>
-			<h5 class="join_date">${changeTimeFormat(user).join(' ')}</h5>
+			<h5 class="join_date">Joined ${time}</h5>
 			<p>${user.bio}</p>
 			<ul class="info">
 				<li>Repos </br>${user.public_repos}</li>
@@ -51,12 +53,13 @@ const changeCard = (user) => {
 			<ul class="contact_details">
 				<li>Location: ${user.location}</li>
 				<a href="${user.blog}" target="_blank">${user.blog}</a>
-				<li>${user.company}</li>
+				<li>Company: ${user.company}</li>
 			</ul>
 		</div>
 	</div>
 	`;
 	main.innerHTML = card;
+	input.value = '';
 };
 
 searchBtn.addEventListener('click', () => {
@@ -64,7 +67,4 @@ searchBtn.addEventListener('click', () => {
 	changeCard(input.value);
 	// getUser('manan-dev');
 	// changeCard('manan-dev');
-
-	// getUser('jaredthecoder');
-	// getUser('florinpop17');
 });
