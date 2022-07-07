@@ -2,7 +2,7 @@ const url = 'https://api.github.com/users/';
 const searchBtn = document.getElementById('search');
 const input = document.getElementById('text');
 
-const getUser = async (user) => {
+const getUser = async user => {
 	try {
 		let data = await fetch(url + user);
 		let response = await data.json();
@@ -34,7 +34,7 @@ function changeTimeFormat(time) {
 	month = months[month - 1];
 	return [date, month, year];
 }
-const changeCard = (user) => {
+const changeCard = user => {
 	let time = changeTimeFormat(user).join(' ');
 	const card = `
 	<div class="card">
@@ -65,6 +65,4 @@ const changeCard = (user) => {
 searchBtn.addEventListener('click', () => {
 	getUser(input.value);
 	changeCard(input.value);
-	// getUser('manan-dev');
-	// changeCard('manan-dev');
 });
